@@ -16,13 +16,22 @@ model User {
   email String  @unique
   name  String?
   posts Post[]
+  drugs Drug[]
 }
 
 model Post {
-  id        Int      @default(autoincrement()) @id
+  id        Int         @default(autoincrement()) @id
   title     String
   content   String?
-  published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
+  published Boolean?    @default(false)
+  author    User?       @relation(fields: [authorId], references: [id])
   authorId  Int?
+}
+
+model Drug {
+  id            Int      @default(autoincrement()) @id
+  title         String
+  description   String?
+  patient       User?    @relation(fields: [patientId], references: [id])
+  patientId     Int?
 }
