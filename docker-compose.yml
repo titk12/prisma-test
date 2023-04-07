@@ -9,6 +9,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306
+    networks:
+      - prisma_network
   prisma-project:
     container_name: prisma-project
     build:
@@ -22,6 +24,9 @@ services:
     command: yarn run start:dev
     env_file:
       - .env
+    networks:
+      - prisma_network
 
-volumes:
+networks:
   prisma_network:
+    name: prisma_network
