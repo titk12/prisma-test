@@ -17,6 +17,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     working_dir: /app
+    command: yarn run start:migrate:dev
     depends_on:
       - mysql
     volumes:

@@ -1,21 +1,29 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
+    "target": "es2017",
     "module": "commonjs",
+    "sourceMap": true,
     "declaration": true,
     "removeComments": true,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "importHelpers": true,
     "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "skipDefaultLibCheck": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "lib": ["es2017"],
+    "baseUrl": ".",
+    "outDir": "dist",
+    "types": ["node", "jest"],
+    "paths": {
+      "#*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "jest.*.ts"],
+  "include": ["src/**/*"]
 }
