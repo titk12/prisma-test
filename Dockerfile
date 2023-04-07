@@ -13,6 +13,7 @@ RUN yarn build
 #RUN yarn prisma migrate deploy
 
 #CMD [ "yarn", "run", "start:migrate:dev" ]
+CMD [ "yarn", "run", "start:migrate:prod" ]
 #CMD [ "node", "dist/src/main.js" ]
 
 
