@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 export const seedDb = async () => {
   const prisma = new PrismaClient();
 
-  const alice = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: 'alice@prisma.io' },
     update: {},
     create: {
@@ -18,7 +18,7 @@ export const seedDb = async () => {
       },
     },
   });
-  const bob = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: 'bob@prisma.io' },
     update: {},
     create: {
@@ -40,5 +40,4 @@ export const seedDb = async () => {
       },
     },
   });
-  console.log({ alice, bob });
 };
