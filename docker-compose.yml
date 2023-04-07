@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  mysql:
+    container_name: mysql-prisma
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: prisma-test
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+  prisma-project:
+    container_name: prisma-project
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    working_dir: /app
+    #volumes:
+    #  - ./:/app
+    ports:
+      - 3000:3000
+    command: yarn run start:dev
+    env_file:
+      - .env
+
+volumes:
+  prisma_network:
