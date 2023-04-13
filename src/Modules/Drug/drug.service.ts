@@ -8,7 +8,11 @@ export class DrugService {
   constructor(private prisma: PrismaService) {}
 
   async importDrugs() {
-    const drugs = await this.readFromCsv();
+    const drugs: any = await this.readFromCsv();
+
+    drugs.forEach(async (drug) => {
+      await this.prisma.drug.create({ data: { title: drug[1] } });
+    });
 
     return drugs;
   }
